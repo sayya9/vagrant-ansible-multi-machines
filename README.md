@@ -16,9 +16,7 @@ Use vagrant boxes:
 ## Installation
 
 Run the commands below:
-
-	```
-	git clone https://github.com/sayya9/vagrant-ansible-multi-machines
-	cd vagrant-ansible-multi-machines
-	vagrant up
-	```
+	
+     git clone https://github.com/sayya9/vagrant-ansible-multi-machines
+     cd vagrant-ansible-multi-machines
+     vagrant up
