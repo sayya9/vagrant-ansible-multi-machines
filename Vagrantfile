@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
   hosts.each do |host|
     config.vm.define host[:name] do |node|
       node.vm.hostname = host[:name]
-      node.vm.box = 'centos/7'
+      #node.vm.box = 'centos/7'
       node.vm.box = 'geerlingguy/ubuntu1604'
       node.vm.network :forwarded_port, guest: 22, host: host[:port], id: 'ssh'
       node.vm.network :private_network, ip: host[:ip]
