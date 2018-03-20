@@ -1,0 +1,5 @@
+---
+system_servers:
+  ceph-node1: 192.168.57.101
+  ceph-node2: 192.168.57.102
+  ceph-node3: 192.168.57.103

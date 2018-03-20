@@ -1,0 +1,15 @@
+---
+- name: generate /etc/hosts
+  lineinfile:
+    dest: /etc/hosts
+    line: "{{ item.value }} {{ item.key }}"
+  with_dict: "{{ system_servers }}"
+
+- name: include distro vars
+  include_vars: "{{ ansible_distribution }}.yml"
+
+- name: install essential packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ system_pkgs }}"

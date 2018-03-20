@@ -1,0 +1,18 @@
+---
+- name: include distro vars
+  include_vars: "{{ ansible_distribution }}.yml"
+
+- name: install ntp packages
+  package:
+    name: "{{ ntp_pkgs }}"
+    state: present
+
+- name: check ntp is up
+  service:
+    name: "{{ ntp_service }}"
+    state: started
+    enabled: yes
+
+- name: set timezone
+  timezone:
+    name: Asia/Taipei

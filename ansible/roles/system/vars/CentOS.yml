@@ -1,0 +1,6 @@
+---
+system_pkgs:
+  - vim
+  - tmux
+  - bc
+  - git
