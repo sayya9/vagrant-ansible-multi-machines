@@ -1,8 +1,6 @@
 # Vagrant Ansible for multi machines
 
 Use vagrant boxes:
-
-- Ubuntu 14.04 Trusty Tahr (Ubuntu Server 64-bit 14.04 cloud image)
 - centos/7
 - geerlingguy/ubuntu1604
 
