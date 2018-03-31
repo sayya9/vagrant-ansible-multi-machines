@@ -4,7 +4,9 @@ hosts = [{ name: 'ceph-node1', ip: '192.168.57.101', port: '2222', disk1: 'ceph-
 
 Vagrant.configure("2") do |config|
   # Use the same key for each machine
+  config.ssh.private_key_path = ["~/.ssh/id_rsa", "~/.vagrant.d/insecure_private_key"]
   config.ssh.insert_key = false
+  config.vm.provision "file", source: "~/.ssh/id_rsa.pub", destination: "~/.ssh/authorized_keys"
 
   config.vm.provider :virtualbox do |v|
     v.customize ['modifyvm', :id, '--memory', 2048]
@@ -14,8 +16,8 @@ Vagrant.configure("2") do |config|
   hosts.each do |host|
     config.vm.define host[:name] do |node|
       node.vm.hostname = host[:name]
-      #node.vm.box = 'centos/7'
-      node.vm.box = 'geerlingguy/ubuntu1604'
+      node.vm.box = 'centos/7'
+      #node.vm.box = 'geerlingguy/ubuntu1604'
       node.vm.network :forwarded_port, guest: 22, host: host[:port], id: 'ssh'
       node.vm.network :private_network, ip: host[:ip]
       node.vm.provider :virtualbox do |vb|
